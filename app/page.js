@@ -3,7 +3,6 @@ import { useState } from 'react';
 import Navbar from './components/Navbar';
 import SearchBar from './components/SearchBar';
 import GridWithSearchCharacters from './components/GridWithSearchCharacters';
-import { getCharacters } from './actions';
 
 export default function Home() {
     const [searchValue, setSearchValue] = useState('');
@@ -14,11 +13,21 @@ export default function Home() {
         setLoading(true);
 
         try {
-            const res = await getCharacters(searchValue);
-            console.log(res.results);
-            setData(res.results);
-        } catch (err) {
-            console.error(err);
+            const response = await fetch(
+                `/api/character?search=${searchValue}`
+            );
+
+            if (!response.ok) {
+                throw new Error(
+                    `Error: ${response.status} ${response.statusText}`
+                );
+            }
+
+            const data = await response.json();
+
+            setData(data.result.results);
+        } catch (error) {
+            console.error('Error fetching character data:', error);
         } finally {
             setLoading(false);
         }
