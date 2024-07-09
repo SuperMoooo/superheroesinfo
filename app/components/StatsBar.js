@@ -4,7 +4,7 @@ export default function StatsBar({ title, value }) {
     return (
         <li className="w-full flex flex-row  items-center space-x-4">
             <h1
-                className={`uppercase text-xl font-bold ${
+                className={`uppercase text-xl font-bold w-36 ${
                     value === 'null' && 'mr-7'
                 }`}
             >
