@@ -19,7 +19,7 @@ export default function GridWithSearchCharacters({ loading, data }) {
                     />
                 ))
             ) : (
-                <span className="text-center text-xl absolute top-40 left-1/2 -translate-x-1/2">
+                <span className="text-center text-xl absolute top-96 left-1/2 -translate-x-1/2">
                     No characters found...maybe not in the api
                 </span>
             )}

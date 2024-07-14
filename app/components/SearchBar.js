@@ -1,9 +1,10 @@
 'use client';
 import React from 'react';
+import CardWithaName from './CardWithaName';
 
 export default function SearchBar({ searchValue, setSearchValue, fetchData }) {
     return (
-        <div className="relative flex items-center justify-center ">
+        <div className="relative flex items-center justify-center flex-col">
             <label className="input input-bordered flex items-center gap-2 outline-none bg-transparent ">
                 <input
                     type="text"
@@ -30,6 +31,31 @@ export default function SearchBar({ searchValue, setSearchValue, fetchData }) {
                     />
                 </svg>
             </label>
+            <div className="flex flex-col items-center justify-center space-y-2 mt-6">
+                <h2>Most searched:</h2>
+                <ul className="flex flex-row items-center justify-center space-x-2">
+                    <CardWithaName
+                        name={'batman'}
+                        setSearchValue={setSearchValue}
+                    />
+                    <CardWithaName
+                        name={'iron man'}
+                        setSearchValue={setSearchValue}
+                    />
+                    <CardWithaName
+                        name={'flash'}
+                        setSearchValue={setSearchValue}
+                    />
+                    <CardWithaName
+                        name={'hulk'}
+                        setSearchValue={setSearchValue}
+                    />
+                    <CardWithaName
+                        name={'captain'}
+                        setSearchValue={setSearchValue}
+                    />
+                </ul>
+            </div>
         </div>
     );
 }

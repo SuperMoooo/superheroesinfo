@@ -12,7 +12,7 @@ export default function ClientProvider({ children }) {
                 loading={
                     <div className="flex h-dvh w-full items-center justify-center flex-col">
                         <span className="loading loading-dots loading-lg"></span>
-                        <p> Refresh if it doesnt load</p>
+                        <p>Refresh if you see this</p>
                     </div>
                 }
                 persistor={persistor}
